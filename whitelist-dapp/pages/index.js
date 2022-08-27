@@ -65,7 +65,7 @@ export default function Home() {
       );
 
       const _numOfWhitelistedAddresses =
-        await whitelistContract.numWhitelistedAddresses();
+        await whitelistContract.numAddressesWhitelisted();
       setNumberOfWhitelisted(_numOfWhitelistedAddresses);
     } catch (error) {
       console.log(error);

@@ -6,7 +6,7 @@ contract Whitelist {
 
     mapping(address => bool) public whitelistedAddresses;
 
-    uint8 public numWhitelistedAddresses;
+    uint8 public numAddressesWhitelisted;
 
     constructor(uint8 _maxWhitelistedAddresses) {
         maxWhitelistedAddresses = _maxWhitelistedAddresses;
@@ -15,11 +15,11 @@ contract Whitelist {
     function addAddressToWhitelist() public {
         require(!whitelistedAddresses[msg.sender], "Sorry this address already exist on the whitelist!");
 
-        require(numWhitelistedAddresses < maxWhitelistedAddresses, "Sorry whitelist space already full!");
+        require(numAddressesWhitelisted < maxWhitelistedAddresses, "Sorry whitelist space already full!");
 
 
         whitelistedAddresses[msg.sender] = true;
 
-        numWhitelistedAddresses += 1;
+        numAddressesWhitelisted += 1;
     }
 }
